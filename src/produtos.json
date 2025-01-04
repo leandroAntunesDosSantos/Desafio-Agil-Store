@@ -4,9 +4,9 @@
         "produtos": [
             {
                 "id": 1,
-                "nome": "bolacha",
-                "categoria": "comestiveis",
-                "quantidade_em_estoque": 24,
+                "nome": "chuveiro",
+                "categoria": "automobilismo",
+                "quantidade_em_estoque": 139,
                 "preco": 24
             },
             {

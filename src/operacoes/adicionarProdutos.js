@@ -42,6 +42,7 @@ function adicionarProdutos() {
 
     fs.writeFileSync('./src/produtos.json', JSON.stringify(produtosString));
     console.log('Produto adicionado com sucesso!');
+    console.log();
 }
 
 module.exports = adicionarProdutos;

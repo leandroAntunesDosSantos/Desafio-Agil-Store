@@ -11,33 +11,10 @@ function atualizarProduto() {
         return;
     }
 
-    const nome = prompt('Digite o nome do produto: ');
-    if (!nome || nome.trim() === '') {
-        console.log('Nome do produto é obrigatório!');
+    const campo = prompt('Digite o campo que deseja atualizar (Nome, Categoria, Quantidade, Preço): ');
+    if (!campo || campo.trim() === '') {
+        console.log('Campo é obrigatório!');
         return;
-    }
-    const categoria = prompt('Digite a categoria do produto: ');
-    if (!categoria || categoria.trim === '') {
-        console.log('Categoria do produto é obrigatório!');
-        return;
-    }
-    const quantidade = parseInt(prompt('Digite a quantidade em estoque: '));
-    if (!quantidade || quantidade < 0 || isNaN(quantidade)) {
-        console.log('Quantidade em estoque é obrigatório!');
-        return;
-    }
-    const preco = parseFloat(prompt('Digite o preço do produto: '));
-    if (!preco || preco < 0 || isNaN(preco)) {
-        console.log('Preço do produto é obrigatório!');
-        return;
-    }
-
-    const produto = {
-        id,
-        nome,
-        categoria,
-        quantidade_em_estoque: quantidade,
-        preco
     }
 
     const index = produtosString[0].produtos.findIndex(produto => produto.id === id);
@@ -46,8 +23,57 @@ function atualizarProduto() {
         return;
     }
 
-    produtosString[0].produtos[index] = produto;
-
+    switch (campo.toLowerCase()) {
+        case 'nome':
+            const nome = prompt('Digite o novo nome do produto: ');
+            if (!nome || nome.trim() === '') {
+                console.log('Nome do produto é obrigatório!');
+                return;
+            }
+            produtosString[0].produtos[index].nome = nome;
+            break;
+        case 'categoria':
+            const categoria = prompt('Digite a nova categoria do produto: ');
+            if (!categoria || categoria.trim() === '') {
+                console.log('Categoria do produto é obrigatório!');
+                return;
+            }
+            produtosString[0].produtos[index].categoria = categoria;
+            break;
+        case 'quantidade':
+            const quantidade = parseInt(prompt('Digite a nova quantidade em estoque: '));
+            if (!quantidade || quantidade < 0 || isNaN(quantidade)) {
+                console.log('Quantidade em estoque é obrigatório!');
+                return;
+            }
+            produtosString[0].produtos[index].quantidade_em_estoque = quantidade;
+            break;
+        case 'preço':
+            const preco = parseFloat(prompt('Digite o novo preço do produto: '));
+            if (!preco || preco < 0 || isNaN(preco)) {
+                console.log('Preço do produto é obrigatório!');
+                return;
+            }
+            produtosString[0].produtos[index].preco = preco;
+            break;
+        default:
+            console.log('Campo inválido!');
+            return;
+    }
+    console.log();
+    console.log('Produto a ser atualizado: ');
+    console.log(`Id: ${produtosString[0].produtos[index].id}`);
+    console.log(`Nome: ${produtosString[0].produtos[index].nome}`);
+    console.log(`Categoria: ${produtosString[0].produtos[index].categoria}`);
+    console.log(`Quantidade em estoque: ${produtosString[0].produtos[index].quantidade_em_estoque}`);
+    console.log(`Preço: ${produtosString[0].produtos[index].preco}`);
+    console.log('------------------------------------');
+    const confirmacao = prompt('Deseja realmente atualizar o produto? (S/N): ');
+    console.log();
+    if (confirmacao.toUpperCase() !== 'S') {
+        console.log('Operação cancelada!');
+        return;
+    }
     fs.writeFileSync('./src/produtos.json', JSON.stringify(produtosString));
     console.log('Produto atualizado com sucesso!');
 }

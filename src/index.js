@@ -9,6 +9,7 @@ const buscarProduto = require('./operacoes/buscarProduto');
 let continuar = true;
 
 while (continuar) {
+    console.log();
     console.log("Bem vindo a loja AgilStore");
     console.log("1 - Adicionar produtos");
     console.log("2 - Listar produtos");
@@ -21,24 +22,27 @@ while (continuar) {
 
     switch (opcao) {
         case "1":
+            console.log();
             adicionarProduto();
             break;
         case "2":
+            console.log();
             listarProduto();
             break;
         case "3":
+            console.log();
             atualizarProduto();
             break;
         case "4":
-            console.log("Excluir produto");
+            console.log();
             excluirProduto();
             break;
         case "5":
-            console.log("Buscar produto");
+            console.log();
             buscarProduto();
             break;
         case "9":
-            console.log("Saindo...");
+            console.log("");
             continuar = false;
             break;
         default:
