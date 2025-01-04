@@ -19,6 +19,9 @@ Bem-vindo à AgilStore, uma aplicação de console para gerenciamento de produto
 ## Como Usar
 
 1. Clone o repositório para sua máquina local.
+    ```sh
+    git clone git@github.com:leandroAntunesDosSantos/Desafio-Agil-Store.git
+    ```
 2. Instale as dependências necessárias:
     ```sh
     npm install prompt-sync
