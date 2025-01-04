@@ -1,16 +1,18 @@
 const fs = require('fs');
 const prompt = require("prompt-sync")();
 
-let auxId = 1;
 
 function adicionarProdutos() {
+    const produtosJson = fs.readFileSync('./src/produtos.json');
+    const produtosString = JSON.parse(produtosJson);
+
     const nome = prompt('Digite o nome do produto: ');
     if (!nome || nome.trim() === '') {
         console.log('Nome do produto é obrigatório!');
         return;
     }
     const categoria = prompt('Digite a categoria do produto: ');
-    if (!categoria || categoria.trim() === '') {
+    if (!categoria || categoria.trim === '') {
         console.log('Categoria do produto é obrigatório!');
         return;
     }
@@ -25,21 +27,26 @@ function adicionarProdutos() {
         return;
     }
     
-
+    let id = produtosString[0].idGlobal;
+    
     const produto = {
-        id: auxId++,
+        id: id,
         nome,
         categoria,
         quantidade_em_estoque: quantidade,
         preco
     }
 
-    const produtosJson = fs.readFileSync('./src/produtos.json');
-    const produtos = JSON.parse(produtosJson);
-    produtos.push(produto);
-    fs.writeFileSync('./src/produtos.json', JSON.stringify(produtos));
+    produtosString[0].idGlobal++;
+    produtosString[0].produtos.push(produto);
+
+    fs.writeFileSync('./src/produtos.json', JSON.stringify(produtosString));
     console.log('Produto adicionado com sucesso!');
 }
 
 module.exports = adicionarProdutos;
 
+
+// produtosString.push(produto);
+//     fs.writeFileSync('./src/produtos.json', JSON.stringify(produtos));
+//     console.log('Produto adicionado com sucesso!');

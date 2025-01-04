@@ -47,5 +47,24 @@ Bem vindo a loja AgilStore
 5 - Buscar produto
 9 - Sair
 Escolha uma opção:
+```
+
+
+O arquivo `produtos.json` já está dentro do projeto, na pasta `src`, e deve possuir o seguinte formato inicial:
+
+```json
+[
+    {
+        "idGlobal": 1,
+        "produtos": []
+    }
+]
+
+```
+
+O campo `idGlobal` serve como referência para as operações de CRUD com os produtos, e o array `produtos` armazenará os produtos cadastrados.
+
+Caso esteja utilizando o VS Code, você pode utilizar `Shift + Alt + F` para identar o código e melhorar a visualização do arquivo JSON.
+
 
 
