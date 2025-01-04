@@ -28,7 +28,11 @@ Bem-vindo à AgilStore, uma aplicação de console para gerenciamento de produto
     ```
 3. Execute a aplicação:
     ```sh
-    node src/index.js
+    node src/index.js 
+
+       ou
+       
+    npm start
     ```
 4. Siga as instruções no console para interagir com a aplicação.
 

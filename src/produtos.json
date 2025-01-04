@@ -1,6 +1,21 @@
 [
     {
-        "idGlobal": 1,
-        "produtos": []
+        "idGlobal": 3,
+        "produtos": [
+            {
+                "id": 1,
+                "nome": "bolacha",
+                "categoria": "comestiveis",
+                "quantidade_em_estoque": 24,
+                "preco": 24
+            },
+            {
+                "id": 2,
+                "nome": "morango",
+                "categoria": "fruta",
+                "quantidade_em_estoque": 45,
+                "preco": 34
+            }
+        ]
     }
 ]

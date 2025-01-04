@@ -24,11 +24,9 @@ while (continuar) {
             adicionarProduto();
             break;
         case "2":
-            console.log("Listar produtos");
             listarProduto();
             break;
         case "3":
-            console.log("Atualizar produto");
             atualizarProduto();
             break;
         case "4":
