@@ -1,5 +1,9 @@
 const prompt = require('prompt-sync')();
 const adicionarProduto = require('./operacoes/adicionarProdutos');
+const listarProduto = require('./operacoes/listarProdutos');
+const atualizarProduto = require('./operacoes/atualizarProduto');
+const excluirProduto = require('./operacoes/excluirProduto');
+const buscarProduto = require('./operacoes/buscarProduto');
 
 
 let continuar = true;
@@ -17,20 +21,23 @@ while (continuar) {
 
     switch (opcao) {
         case "1":
-            console.log("Adicionar produtos");
             adicionarProduto();
             break;
         case "2":
             console.log("Listar produtos");
+            listarProduto();
             break;
         case "3":
             console.log("Atualizar produto");
+            atualizarProduto();
             break;
         case "4":
             console.log("Excluir produto");
+            excluirProduto();
             break;
         case "5":
             console.log("Buscar produto");
+            buscarProduto();
             break;
         case "9":
             console.log("Saindo...");
