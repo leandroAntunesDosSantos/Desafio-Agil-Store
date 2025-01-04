@@ -1,21 +1,6 @@
 [
     {
-        "idGlobal": 3,
-        "produtos": [
-            {
-                "id": 1,
-                "nome": "chuveiro",
-                "categoria": "automobilismo",
-                "quantidade_em_estoque": 139,
-                "preco": 24
-            },
-            {
-                "id": 2,
-                "nome": "morango",
-                "categoria": "fruta",
-                "quantidade_em_estoque": 45,
-                "preco": 34
-            }
-        ]
+        "idGlobal": 1,
+        "produtos": []
     }
 ]

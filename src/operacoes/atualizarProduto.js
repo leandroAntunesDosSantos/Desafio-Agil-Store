@@ -11,7 +11,7 @@ function atualizarProduto() {
         return;
     }
 
-    const campo = prompt('Digite o campo que deseja atualizar (Nome, Categoria, Quantidade, Preço): ');
+    const campo = prompt('Digite o campo que deseja atualizar (Nome, Categoria, Quantidade, preco): ');
     if (!campo || campo.trim() === '') {
         console.log('Campo é obrigatório!');
         return;
@@ -48,10 +48,10 @@ function atualizarProduto() {
             }
             produtosString[0].produtos[index].quantidade_em_estoque = quantidade;
             break;
-        case 'preço':
-            const preco = parseFloat(prompt('Digite o novo preço do produto: '));
+        case 'preco':
+            const preco = parseFloat(prompt('Digite o novo preco do produto: '));
             if (!preco || preco < 0 || isNaN(preco)) {
-                console.log('Preço do produto é obrigatório!');
+                console.log('preco do produto é obrigatório!');
                 return;
             }
             produtosString[0].produtos[index].preco = preco;
@@ -66,7 +66,7 @@ function atualizarProduto() {
     console.log(`Nome: ${produtosString[0].produtos[index].nome}`);
     console.log(`Categoria: ${produtosString[0].produtos[index].categoria}`);
     console.log(`Quantidade em estoque: ${produtosString[0].produtos[index].quantidade_em_estoque}`);
-    console.log(`Preço: ${produtosString[0].produtos[index].preco}`);
+    console.log(`preco: ${produtosString[0].produtos[index].preco}`);
     console.log('------------------------------------');
     const confirmacao = prompt('Deseja realmente atualizar o produto? (S/N): ');
     console.log();

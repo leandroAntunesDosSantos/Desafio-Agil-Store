@@ -2,10 +2,15 @@
 
 Bem-vindo à AgilStore, uma aplicação de console para gerenciamento de produtos.
 
+## Linguagens Utilizadas
+
+- Javascript (Node.Js)
+
 ## Pacotes Utilizados
 
 - `prompt-sync`: Para entrada de dados via console.
 - `fs`: Para manipulação de arquivos.
+
 
 ## Funcionalidades
 
@@ -25,6 +30,10 @@ Bem-vindo à AgilStore, uma aplicação de console para gerenciamento de produto
 2. Instale as dependências necessárias:
     ```sh
     npm install prompt-sync
+
+        ou somente
+
+    npm install
     ```
 3. Execute a aplicação:
     ```sh
@@ -69,6 +78,11 @@ O arquivo `produtos.json` já está dentro do projeto, na pasta `src`, e deve po
 O campo `idGlobal` serve como referência para as operações de CRUD com os produtos, e o array `produtos` armazenará os produtos cadastrados.
 
 Caso esteja utilizando o VS Code, você pode utilizar `Shift + Alt + F` para identar o código e melhorar a visualização do arquivo JSON.
+
+
+Na operação de buscar produto, é possível realizar a busca pelo ID ou por parte do nome do produto.
+
+Na operação de listar produtos, é possível selecionar a ordenação por nome, quantidade ou preço, ou trazer todos os produtos de forma sequencial, conforme foram gravados no arquivo de produtos.
 
 
 

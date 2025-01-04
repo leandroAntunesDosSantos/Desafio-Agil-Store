@@ -43,6 +43,11 @@ function filtragemCategoria() {
 
     const produtosFiltrados = produtosString[0].produtos.filter(produto => produto.categoria === categoria);
 
+    if (produtosFiltrados.length === 0) {
+        console.log('Nenhum produto encontrado!');
+        return;
+    }
+
     console.log('Lista de produtos:');
     produtosFiltrados.forEach(produto => {
         console.log(`Id: ${produto.id}`);
@@ -85,6 +90,10 @@ function ordenarPorQuantidade() {
 
     const produtosOrdenados = produtosString[0].produtos.sort((a, b) => a.quantidade_em_estoque - b.quantidade_em_estoque);
 
+    if (produtosOrdenados.length === 0) {
+        console.log('Nenhum produto encontrado!');
+        return;
+    }
     console.log('Lista de produtos:');
     produtosOrdenados.forEach(produto => {
         console.log(`Id: ${produto.id}`);
@@ -102,6 +111,11 @@ function ordenarPorPreco() {
 
     const produtosOrdenados = produtosString[0].produtos.sort((a, b) => a.preco - b.preco);
 
+    if (produtosOrdenados.length === 0) {
+        console.log('Nenhum produto encontrado!');
+        return;
+    }
+
     console.log('Lista de produtos:');
     produtosOrdenados.forEach(produto => {
         console.log(`Id: ${produto.id}`);
@@ -117,6 +131,10 @@ function listarTodosProdutos() {
     const produtosJson = fs.readFileSync('./src/produtos.json');
     const produtosString = JSON.parse(produtosJson);
 
+    if (produtosString[0].produtos.length === 0) {
+        console.log('Nenhum produto encontrado!');
+        return;
+    }
     console.log('Lista de produtos:');
     produtosString[0].produtos.forEach(produto => {
         console.log(`Id: ${produto.id}`);
