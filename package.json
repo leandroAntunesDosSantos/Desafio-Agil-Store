@@ -1,0 +1,15 @@
+{
+  "name": "agil",
+  "version": "1.0.0",
+  "description": "gerenciamento de produtos ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "leandro antunes",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
