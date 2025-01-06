@@ -4,7 +4,7 @@ Bem-vindo à AgilStore, uma aplicação de console para gerenciamento de produto
 
 ## Linguagens Utilizadas
 
-- Javascript (Node.Js)
+- Javascript (Node.Js - v22.11.0)
 
 ## Pacotes Utilizados
 
