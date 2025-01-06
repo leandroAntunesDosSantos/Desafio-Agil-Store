@@ -3,7 +3,6 @@ const prompt = require("prompt-sync")();
 
 
 function listarProdutos() {
-    // Verificar se há produtos em estoque
     if (!verificarProdutosEmEstoque()) {
         return;
     }
@@ -93,7 +92,7 @@ function listarTodosProdutos() {
 function verificarProdutosEmEstoque() {
     const produtosJson = fs.readFileSync('./src/produtos.json');
     const produtosString = JSON.parse(produtosJson);
-    
+
     const produtosEmEstoque = produtosString[0].produtos.filter(produto => produto.quantidade_em_estoque > 0);
 
     if (produtosEmEstoque.length === 0) {
