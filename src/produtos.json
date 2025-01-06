@@ -1,6 +1,1 @@
-[
-    {
-        "idGlobal": 1,
-        "produtos": []
-    }
-]
+[{"idGlobal":5,"produtos":[{"id":1,"nome":"melancia","categoria":"fruta","quantidade_em_estoque":12,"preco":3},{"id":2,"nome":"pera","categoria":"fruta","quantidade_em_estoque":4,"preco":23},{"id":3,"nome":"manga","categoria":"fruta","quantidade_em_estoque":24,"preco":7},{"id":4,"nome":"carrinho","categoria":"brinquedo","quantidade_em_estoque":5,"preco":12}]}]

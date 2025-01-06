@@ -22,27 +22,21 @@ while (continuar) {
 
     switch (opcao) {
         case "1":
-            console.log();
             adicionarProduto();
             break;
         case "2":
-            console.log();
             listarProduto();
             break;
         case "3":
-            console.log();
             atualizarProduto();
             break;
         case "4":
-            console.log();
             excluirProduto();
             break;
         case "5":
-            console.log();
             buscarProduto();
             break;
         case "9":
-            console.log("");
             continuar = false;
             break;
         default:

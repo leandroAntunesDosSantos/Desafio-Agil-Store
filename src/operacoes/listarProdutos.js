@@ -1,8 +1,13 @@
 const fs = require('fs');
 const prompt = require("prompt-sync")();
 
+
 function listarProdutos() {
-    
+    // Verificar se há produtos em estoque
+    if (!verificarProdutosEmEstoque()) {
+        return;
+    }
+    console.log('------------------------------------');
     console.log('1 - Filtrar por categoria');
     console.log('2 - Ordenar por nome');
     console.log('3 - Ordenar por quantidade');
@@ -10,6 +15,7 @@ function listarProdutos() {
     console.log('5 - Listar todos os produtos');
     console.log('9 - Voltar');
     const opcao = prompt('Escolha uma opção: ');
+    console.log('------------------------------------');
 
     switch (opcao) {
         case '1':
@@ -38,25 +44,10 @@ function listarProdutos() {
 function filtragemCategoria() {
     const produtosJson = fs.readFileSync('./src/produtos.json');
     const produtosString = JSON.parse(produtosJson);
-
+    
     const categoria = prompt('Digite a categoria do produto: ');
-
     const produtosFiltrados = produtosString[0].produtos.filter(produto => produto.categoria === categoria);
-
-    if (produtosFiltrados.length === 0) {
-        console.log('Nenhum produto encontrado!');
-        return;
-    }
-
-    console.log('Lista de produtos:');
-    produtosFiltrados.forEach(produto => {
-        console.log(`Id: ${produto.id}`);
-        console.log(`Nome: ${produto.nome}`);
-        console.log(`Categoria: ${produto.categoria}`);
-        console.log(`Quantidade em estoque: ${produto.quantidade_em_estoque}`);
-        console.log(`Preço: ${produto.preco}`);
-        console.log('------------------------------------');
-    });
+    visualizarProdutos(produtosFiltrados);
 }
 
 function ordenarPorNome() {
@@ -72,16 +63,7 @@ function ordenarPorNome() {
         }
         return 0;
     });
-
-    console.log('Lista de produtos:');
-    produtosOrdenados.forEach(produto => {
-        console.log(`Id: ${produto.id}`);
-        console.log(`Nome: ${produto.nome}`);
-        console.log(`Categoria: ${produto.categoria}`);
-        console.log(`Quantidade em estoque: ${produto.quantidade_em_estoque}`);
-        console.log(`Preço: ${produto.preco}`);
-        console.log('------------------------------------');
-    });
+    visualizarProdutos(produtosOrdenados);
 }
 
 function ordenarPorQuantidade() {
@@ -89,20 +71,7 @@ function ordenarPorQuantidade() {
     const produtosString = JSON.parse(produtosJson);
 
     const produtosOrdenados = produtosString[0].produtos.sort((a, b) => a.quantidade_em_estoque - b.quantidade_em_estoque);
-
-    if (produtosOrdenados.length === 0) {
-        console.log('Nenhum produto encontrado!');
-        return;
-    }
-    console.log('Lista de produtos:');
-    produtosOrdenados.forEach(produto => {
-        console.log(`Id: ${produto.id}`);
-        console.log(`Nome: ${produto.nome}`);
-        console.log(`Categoria: ${produto.categoria}`);
-        console.log(`Quantidade em estoque: ${produto.quantidade_em_estoque}`);
-        console.log(`Preço: ${produto.preco}`);
-        console.log('------------------------------------');
-    });
+    visualizarProdutos(produtosOrdenados);
 }
 
 function ordenarPorPreco() {
@@ -110,33 +79,37 @@ function ordenarPorPreco() {
     const produtosString = JSON.parse(produtosJson);
 
     const produtosOrdenados = produtosString[0].produtos.sort((a, b) => a.preco - b.preco);
-
-    if (produtosOrdenados.length === 0) {
-        console.log('Nenhum produto encontrado!');
-        return;
-    }
-
-    console.log('Lista de produtos:');
-    produtosOrdenados.forEach(produto => {
-        console.log(`Id: ${produto.id}`);
-        console.log(`Nome: ${produto.nome}`);
-        console.log(`Categoria: ${produto.categoria}`);
-        console.log(`Quantidade em estoque: ${produto.quantidade_em_estoque}`);
-        console.log(`Preço: ${produto.preco}`);
-        console.log('------------------------------------');
-    });
+    visualizarProdutos(produtosOrdenados);
 }
 
 function listarTodosProdutos() {
     const produtosJson = fs.readFileSync('./src/produtos.json');
     const produtosString = JSON.parse(produtosJson);
 
-    if (produtosString[0].produtos.length === 0) {
-        console.log('Nenhum produto encontrado!');
-        return;
+    const produtosOrdenados = produtosString[0].produtos.sort((a, b) => a.id - b.id);
+    visualizarProdutos(produtosOrdenados);
+}
+
+function verificarProdutosEmEstoque() {
+    const produtosJson = fs.readFileSync('./src/produtos.json');
+    const produtosString = JSON.parse(produtosJson);
+    
+    const produtosEmEstoque = produtosString[0].produtos.filter(produto => produto.quantidade_em_estoque > 0);
+
+    if (produtosEmEstoque.length === 0) {
+        console.log('------------------------------------');
+        console.log('Nenhum produto em estoque!');
+        console.log('------------------------------------');
+        return false;
+    }else{
+        return true;
     }
-    console.log('Lista de produtos:');
-    produtosString[0].produtos.forEach(produto => {
+}
+
+function visualizarProdutos(produtosRef){
+    console.log('')
+    console.log('----- Lista de produtos: -----');
+    produtosRef.forEach(produto => {
         console.log(`Id: ${produto.id}`);
         console.log(`Nome: ${produto.nome}`);
         console.log(`Categoria: ${produto.categoria}`);
